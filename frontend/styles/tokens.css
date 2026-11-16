@@ -1,0 +1,57 @@
+/* iclear design tokens — dark only ("plomo" + subtle green). */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #0b0c0d;
+  --bg-elevated: #0f1112;
+  --surface: #141617;
+  --surface-2: #1c1f20;
+  --surface-3: #232728;
+  --hairline: #ffffff14;
+  --hairline-strong: #ffffff24;
+  --dot: #ffffff0d;
+
+  /* Text */
+  --text: #eceeed;
+  --text-2: #8d9392;
+  --text-3: #5c6261;
+
+  /* Accent & states */
+  --accent: #3ddc84;
+  --accent-strong: #5ff09c;
+  --accent-ink: #04140b;
+  --accent-soft: #3ddc841f;
+  --accent-glow: #3ddc8466;
+  --warn: #e5b454;
+  --warn-soft: #e5b4541f;
+  --danger: #ef5b5b;
+  --danger-soft: #ef5b5b1f;
+  --neutral-soft: #ffffff0f;
+
+  /* Elevation */
+  --shadow-soft: 0 1px 0 #ffffff0a inset, 0 24px 60px -24px #0009;
+  --shadow-pop: 0 1px 0 #ffffff12 inset, 0 40px 90px -30px #000c;
+
+  /* Shape */
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Type */
+  --font-display: "Geist", -apple-system, "SF Pro Display", BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-body: "Inter", -apple-system, "SF Pro Text", BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-mono: "Geist Mono", "SF Mono", ui-monospace, Menlo, monospace;
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 150ms;
+  --t-med: 220ms;
+
+  /* Layout */
+  --sidebar-w: 232px;
+  --topbar-h: 64px;
+  --traffic-lights: 78px;
+}

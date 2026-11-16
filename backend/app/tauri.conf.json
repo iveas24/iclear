@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "iclear",
+  "version": "0.1.0",
+  "identifier": "com.iclear.app",
+  "build": {
+    "beforeDevCommand": { "script": "trunk serve --port 1420", "cwd": "../../frontend" },
+    "beforeBuildCommand": { "script": "trunk build --release", "cwd": "../../frontend" },
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../../frontend/dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "iclear",
+        "width": 1280,
+        "height": 820,
+        "minWidth": 980,
+        "minHeight": 640,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "backgroundColor": "#0b0c0d",
+        "theme": "Dark"
+      }
+    ],
+    "security": { "csp": null }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app"],
+    "category": "Utility",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.png"],
+    "macOS": { "minimumSystemVersion": "13.0" }
+  }
+}

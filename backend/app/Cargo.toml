@@ -1,0 +1,23 @@
+[package]
+name = "iclear-app"
+version.workspace = true
+edition.workspace = true
+description = "App de escritorio iclear (Tauri 2)"
+default-run = "iclear"
+
+[[bin]]
+name = "iclear"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+iclear-protocol.workspace = true
+iclear-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

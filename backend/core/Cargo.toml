@@ -1,0 +1,22 @@
+[package]
+name = "iclear-core"
+version.workspace = true
+edition.workspace = true
+description = "Lógica de iclear sin privilegios: métricas, batería, SMC, almacenamiento"
+
+[dependencies]
+iclear-protocol.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+libc.workspace = true
+sysinfo = "0.37"
+plist = "1"
+jwalk = "0.8"
+rayon = "1"
+blake3 = "1"
+objc2 = "0.6"
+objc2-foundation = "0.3"
+
+[dev-dependencies]
+tempfile = "3"

@@ -1,0 +1,15 @@
+[package]
+name = "iclear-cli"
+version.workspace = true
+edition.workspace = true
+description = "Herramienta de diagnóstico de iclear"
+
+[[bin]]
+name = "iclear-cli"
+path = "src/main.rs"
+
+[dependencies]
+iclear-protocol.workspace = true
+iclear-core.workspace = true
+serde_json.workspace = true
+serde.workspace = true

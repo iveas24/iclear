@@ -1,0 +1,6 @@
+/target
+/frontend/dist
+.DS_Store
+/promo/*.wav
+/promo/still-*.png
+/dist

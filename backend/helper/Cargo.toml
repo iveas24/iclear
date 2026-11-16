@@ -1,0 +1,12 @@
+[package]
+name = "iclear-helper"
+version.workspace = true
+edition.workspace = true
+description = "Daemon root de iclear: ventiladores, límite de carga y acciones privilegiadas"
+
+[dependencies]
+iclear-protocol.workspace = true
+iclear-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+libc.workspace = true

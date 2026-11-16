@@ -1,0 +1,11 @@
+[package]
+name = "iclear-protocol"
+version.workspace = true
+edition.workspace = true
+description = "Tipos compartidos entre la app, el helper root y el frontend"
+
+[dependencies]
+serde.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

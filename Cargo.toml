@@ -1,0 +1,31 @@
+[workspace]
+resolver = "2"
+members = [
+    "backend/protocol",
+    "backend/core",
+    "backend/helper",
+    "backend/cli",
+    "backend/app",
+    "frontend",
+]
+# `cargo build` / `cargo test` sin -p compilan solo el backend (el frontend se compila a WASM con trunk).
+default-members = [
+    "backend/protocol",
+    "backend/core",
+    "backend/helper",
+    "backend/cli",
+    "backend/app",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+libc = "0.2"
+iclear-protocol = { path = "backend/protocol" }
+iclear-core = { path = "backend/core" }
