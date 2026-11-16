@@ -65,6 +65,14 @@ Bitácora del proyecto. Se actualiza al terminar cada paso.
 - **Bug evitado**: un pequeño "URL handler" se quedaba con los datos de la app principal porque compartían nombre de ejecutable. Ahora no se compara por ejecutable, una carpeta ambigua no se asigna a nadie y hay un test para esto.
 - `cargo test`: 19 tests OK.
 
+## 2026-11-15 — Instalador, repo y privacidad
+
+### Hecho
+- `scripts/build-pkg.sh` genera `dist/iclear-0.1.0.pkg` (5,2 MB): trae la app con el helper dentro, firma ad-hoc, instala en /Applications y exige arm64 con macOS 13 o superior.
+- Repo publicado en GitHub: `iveas24/iclear`, rama `main`.
+- Los docs, los datos simulados y los tests ya no contienen datos del Mac de desarrollo.
+- Sección Nube agregada por otra sesión en paralelo. Ver [CLOUD.md](CLOUD.md).
+
 ### Pendiente / por verificar
 
 - [x] Instalar el helper y probar ventilador manual → auto.
@@ -73,5 +81,7 @@ Bitácora del proyecto. Se actualiza al terminar cada paso.
 - [ ] Dar **Acceso total al disco** a la app para medir Mail y contenedores.
 - [x] Empaquetar `iclear-helper` dentro del `.app` y generar el instalador `.pkg` (`scripts/build-pkg.sh`).
 - [ ] Desinstalar apps de root (App Store / `.pkg`): hoy salen como no removibles. Se podría ofrecer "Mover a la Papelera" con el permiso de Finder o un comando del helper con validación estricta.
+- [ ] Publicar el `.pkg` como Release de GitHub (requiere `gh auth login`).
+- [ ] Firmar y notarizar con una Developer ID para evitar el aviso de Gatekeeper.
 - [ ] Probar una desinstalación real (con tu OK) y revisar `deletions.log`.
 - [ ] Opcional: permitir Google Fonts en la CSP o empaquetar las fuentes (hoy hay respaldo a SF Pro / SF Mono).
