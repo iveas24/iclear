@@ -56,13 +56,16 @@ pkgbuild --root "$WORK/root" --component-plist "$WORK/component.plist" \
 productbuild --synthesize --package "$WORK/iclear-component.pkg" "$WORK/distribution.xml"
 # Installer window title, host architecture and minimum macOS version.
 python3 - "$WORK/distribution.xml" <<'PY'
-import sys
+import re, sys
 p = sys.argv[1]
 s = open(p).read()
-s = s.replace('<installer-gui-script minSpecVersion="2">',
-  '<installer-gui-script minSpecVersion="2">\n    <title>iclear</title>\n'
-  '    <options hostArchitectures="arm64" customize="never" require-scripts="false"/>\n'
-  '    <allowed-os-versions><os-version min="13.0"/></allowed-os-versions>', 1)
+# productbuild's synthesized file varies (minSpecVersion 1 or 2), so match loosely.
+s, n = re.subn(r'(<installer-gui-script[^>]*>)',
+  r'\1\n    <title>iclear</title>\n    <allowed-os-versions><os-version min="13.0"/></allowed-os-versions>', s, count=1)
+assert n == 1, "installer-gui-script not found"
+s = re.sub(r'hostArchitectures="[^"]*"', 'hostArchitectures="arm64"', s)
+if 'hostArchitectures' not in s:
+    s = s.replace('<title>iclear</title>', '<title>iclear</title>\n    <options hostArchitectures="arm64" customize="never" require-scripts="false"/>', 1)
 open(p, 'w').write(s)
 PY
 

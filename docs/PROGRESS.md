@@ -73,10 +73,19 @@ Bitácora del proyecto. Se actualiza al terminar cada paso.
 - Los docs, los datos simulados y los tests ya no contienen datos del Mac de desarrollo.
 - Sección Nube agregada por otra sesión en paralelo. Ver [CLOUD.md](CLOUD.md).
 
+## 2026-11-16 — Verificaciones
+
+| Prueba | Resultado |
+|---|---|
+| `.pkg` expandido con `pkgutil --expand` | Trae título, `hostArchitectures="arm64"` y macOS 13 o superior (antes el script no los aplicaba; corregido) |
+| App del bundle (`open iclear.app`) | Arranca, se mantiene estable (~105 MB) y cierra con `quit` |
+| Descarga forzada `on` | `CHIE = 08`, macOS pasa a "Battery Power" y el adaptador queda desconectado por software |
+| Descarga forzada `off` | `CHIE = 00`, vuelve a "AC Power" |
+
 ### Pendiente / por verificar
 
 - [x] Instalar el helper y probar ventilador manual → auto.
-- [ ] Probar la descarga forzada (`CHIE`) con la batería sobre 50 % (desconecta el cargador mientras está activa).
+- [x] Probar la descarga forzada (`CHIE`): funciona y se revierte bien.
 - [ ] Revisar la app real con datos reales (no pude capturar la ventana nativa: falta permiso de grabación de pantalla).
 - [ ] Dar **Acceso total al disco** a la app para medir Mail y contenedores.
 - [x] Empaquetar `iclear-helper` dentro del `.app` y generar el instalador `.pkg` (`scripts/build-pkg.sh`).

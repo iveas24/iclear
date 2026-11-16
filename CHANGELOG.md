@@ -31,6 +31,9 @@
 - La instalación del helper fallaba si el proyecto estaba en `~/Desktop` (TCC); el binario ahora se copia a una carpeta temporal antes de instalarlo.
 - Los ventiladores detenidos por el sistema (`F{i}Md = 3`) aparecían como "Manual".
 
+### Corregido (instalador)
+- `build-pkg.sh` no aplicaba el título, la restricción a arm64 ni el mínimo de macOS 13 en el `.pkg`, porque `productbuild` genera `minSpecVersion="1"`. Ahora usa una expresión regular.
+
 ### Privacidad
 - Los datos simulados, los tests y los docs ya no contienen datos del Mac de desarrollo; usan valores ficticios.
 

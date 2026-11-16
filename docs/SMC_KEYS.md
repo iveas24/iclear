@@ -55,7 +55,7 @@ Se descubren al iniciar: todas las llaves `T???` de tipo `flt ` o `sp78` con val
 |---|---|---|---|
 | `CHTE` | macOS 15–26, M3/M4 | ui32, 1 = no cargar | **no existe** (result 132) |
 | `CH0B` + `CH0C` | M1/M2 antiguos | 0x02 = no cargar | **no existen** |
-| `CHIE` | Nuevos | 0x08 = desconectar adaptador (descarga forzada) | existe y **acepta escritura** (el helper lo detecta como `discharge=Chie`); efecto aún no probado |
+| `CHIE` | Nuevos | 0x08 = desconectar adaptador (descarga forzada) | existe y **funciona**: con `08` macOS pasa a "Battery Power" (`ExternalConnected = No`) y con `00` vuelve a "AC Power" (probado el 2026-11-16) |
 | `CH0J` | Antiguos | 0x01 = desconectar adaptador | no legible |
 
 Desde macOS 27 Apple restringió las llaves de control de carga del SMC a un entitlement privado, y además existe el **límite de carga nativo** (Ajustes del Sistema › Batería, 80–100 %, desde macOS 26.4). Por eso el helper **prueba cada llave al iniciar** (escribe de vuelta su valor actual) y reporta `supports_charge_limit` / `supports_force_discharge`. Si no hay soporte, la UI ofrece abrir los ajustes nativos de batería.
